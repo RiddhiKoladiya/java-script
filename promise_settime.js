@@ -15,6 +15,9 @@ let proms=new Promise((rs,rj)=>{
             let p="this is not 54 "
             rj(p);
         }
+        let fun=map(()=>{
+            
+        })
     },4000);
 })
 proms.then((e)=>{
