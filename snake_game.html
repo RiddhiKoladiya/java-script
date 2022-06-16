@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        1
+        2
+        3
+        4
+        5
+        6
+        7
+        8
+        9
+        10
+        11
+        12
+        13
+        14
+        15
+        16
+        17
+        18
+        19
+        20
+        21
+        22
+        23
+        24
+        25
+        26
+        27
+        28
+        29
+        30
+        31
+        32
+        33
+        34
+        35
+        36
+        37
+        38
+        39
+        40
+        41
+        42
+        43
+        44
+        45
+        46
+        47
+        48
+        49
+        50
+        51
+        52
+        53
+        54
+        55
+        56
+        57
+        58
+        59
+        60
+        61
+        62
+        63
+        64
+        65
+        66
+        67
+        68
+        69
+        70
+        71
+        72
+        73
+        74
+        75
+        76
+        77
+        78
+        body{
+          background-color:#DEB887;
+        }
+        h1
+        {
+          text-align:center;
+          background-color:#808000;
+          padding:6px;
+          color:white;
+        }
+         
+        .main
+        {
+          height:525px;
+          width:525px;
+          background-image:url("http://1.bp.blogspot.com/_UVqusWXd9Wk/S7NYgnLVzjI/AAAAAAAAKQw/T8dpgdPb-po/s320/snake+and+ladder+game.bmp");
+          background-size:525px 525px;
+          background-repeat:no-repeat;
+          float:left;
+          border:3px solid  #A52A2A;
+        }
+         
+        .superimposed
+        {
+         
+          height:500px;
+          width:500px;
+          position:absolute;
+          top:90px;
+          left:20px;
+        }
+         
+        #side
+        {
+          height:500px;
+          width:200px;
+          margin-left:500px;
+        }
+         
+        .btn
+        {
+          height:40px;
+          width:100px;
+          margin-left:50px;
+          margin-top:20px;
+          border-radius:5px;
+        }
+        .boardbox
+        {
+          height:50px;
+          width:50px;
+          z-index:-1;
+         
+        }
+        .left
+        {
+          float:left;
+        }
+        .right
+        {
+          float:right;
+        }
+        .img
+        {
+          height:45px;
+          width:50px;
+          margin:2px 0px 3px 0px;
+        }
+        #dice
+        {
+          height:80px;
+          width:80px;
+          font-size:70px;
+          color:black;
+          margin:auto;
+          border:none;
+          background-color:white;
+        }</style>
+</head>
+<body>
+    
+  <h1>Snake and ladder</h1>
+  <div class="main" ></div>
+  <div class="superimposed" id="board"></div>
+  <div id="side">
+    <center><button class="btn" id="Play" onclick="play()">New game</button><center><br>
+    <center><button id="dice" onclick="random()"></button></center>
+  </div>
+</body>
+<script>
+var number=1;
+var a;
+var j;
+var n=1;
+var m=0;
+var dices=["","⚀","⚁","⚂","⚃","⚄","⚅"];
+var id=100;
+  
+for (a=0;a<5;a++)
+{
+  for (b=0;b<=9;b++)
+    {
+      document.getElementById("board").innerHTML+="<div class='boardbox left' id='box"+id+"' ></div>"
+      id--;
+    }
+  for (c=0;c<=9;c++)
+    {
+      document.getElementById("board").innerHTML+="<div class='boardbox right'id='box"+id+"'></div>"
+      id--;
+    }  
+}
+document.getElementById("box"+number).innerHTML="<img id='counter' class='img' src='http://www.freepngimg.com/thumb/chess/9-chess-pawn-png-image-thumb.png'></img>"
+var play=function()
+{  
+  number=1;
+  document.getElementById("board").style.visibility = "visible";
+  document.getElementById("dice").style.visibility = "visible";
+  document.getElementById("Play").style.visibility = "hidden";
+  document.getElementById("dice").innerHTML=dices[1];
+}
+var random=function()
+{  
+  document.getElementById("dice").disabled=false;
+  var dices=["","⚀","⚁","⚂","⚃","⚄","⚅"];
+  a= Math.ceil(Math.random()*6);
+  document.getElementById("dice").innerHTML=dices[a];
+  if(n+a>100)
+    {
+      a=0;
+     }
+     d=0;
+     move()
+}
+var move=function()
+{
+  document.getElementById("dice").disabled=true;
+  t=setInterval(move2,200)
+}
+var move2=function()
+{
+  n++;
+  m++;
+}
+if(m<(a)||m==(a))
+   {
+   if(d==(a-1))
+       {
+          if (n==4)
+            {
+               n= 39;
+            }
+          else if (n==36)
+            {
+               n=8;
+            }
+          else if (n==30)
+            {
+               n=12;
+            }
+          else if (n==26)
+            {
+               n=75;
+            }
+          else if (n==33)
+            {
+               n=52;
+            }
+          else if (n==70)
+            {
+               n=50;
+            }
+          else if (n==99)
+            {
+               n=42;
+            }
+          else if (n==59)
+            {
+               n=63;
+            }else if (n==86)
+            {
+               n=57;
+            }
+          else if (n==73)
+            {
+               n=93;
+            }
+          
+         else if (n==100)
+           {
+             alert("You win");
+             document.getElementById("Play").style.visibility = "visible";
+             document.getElementById("dice").style.visibility = "hidden";
+             n=1;
+           }
+         else
+           {
+              n=n;
+           }
+       }
+       var s=document.getElementById("counter");
+       document.getElementById("box"+n).appendChild(s);
+       d+=1;
+     }
+   else
+     {
+        m=0;
+        n-=1;
+        clearInterval(t);
+        document.getElementById("dice").disabled=false;
+     }
+
+</script>

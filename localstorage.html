@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <title>local storage</title>
+    
+    <script>
+        
+        function set(){
+       
+            localStorage.setItem("price",7000);
+       
+            document.getElementById("head").innerHTML="local storage is setteld"
+
+            document.getElementById("btn").className="btnvisibl";
+
+       
+        }
+
+        function get(){
+           
+            document.getElementById("head").innerHTML= localStorage.getItem("price");
+            
+            document.getElementById("btn").className="btnvisibl";
+        
+        }
+
+        function update(){
+
+            localStorage.setItem("price",10000);
+            
+            document.getElementById("head").innerHTML=localStorage.getItem("price");
+          
+            document.getElementById("btn").className="btnvisibl";
+
+        }
+
+        function delet(){
+
+            if(localStorage.getItem("price")===null){
+
+                document.getElementById("btn").className="btnunvisibl";
+
+            }else{
+
+                localStorage.removeItem("price");
+
+                document.getElementById("head").innerHTML="local stort is empty"
+            }
+           
+        }  
+       
+        function overlodefile(){
+       
+            if(localStorage.getItem("price"===null)){
+       
+                document.getElementById("btn").className="btnunvisibl";
+
+            }
+        } 
+
+    </script>
+
+    <style>
+       .btnvisibl{
+           visibility: visible;
+       }
+       .btnunvisibl{
+           visibility: hidden;
+       }
+    </style>
+</head>
+
+<body onload="overlodefile()">
+    <h3 id="head">localstorage </h3>
+    <button onclick="set()">set storage</button>
+    <button onclick="get()">get storage</button>
+    <button onclick="update()">update storage</button>
+    <button id="btn" class="btnunvisibl" onclick="delet()">delete storage</button>
+</body>
+
+</html>

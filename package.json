@@ -1,0 +1,16 @@
+{
+  "dependencies": {
+    "node-fetch": "^3.2.6"
+  },
+  "name": "js-pro",
+  "version": "1.0.5",
+  "type": "module",
+  "main": "fetch_1.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "yrgiues"
+}
